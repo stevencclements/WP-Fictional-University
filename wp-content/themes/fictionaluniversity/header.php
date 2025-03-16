@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 
 
-<html lang="en">
+<html <?php language_attributes(); ?>>
     <head>
+        <meta charset="<?php bloginfo('charset') ?>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <?php wp_head(); ?>
     </head>
 
 
-    <body>
+    <body <?php body_class(); ?>>
         <header class="site-header">
             <div class="container">
                 <h1 class="school-logo-text float-left">
@@ -22,13 +24,10 @@
                 
                 <div class="site-header__menu group">
                     <nav class="main-navigation">
-                        <ul>
-                        <li><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
-                        <li><a href="#">Programs</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Campuses</a></li>
-                        <li><a href="#">Blog</a></li>
-                        </ul>
+                        <?php wp_nav_menu(array(
+                                'theme_location' => 'global-menu'
+                            ));
+                        ?>
                     </nav>
 
                     <div class="site-header__util">

@@ -11,6 +11,9 @@ function university_files() {
 add_action('wp_enqueue_scripts', 'university_files');
 
 function university_features() {
+    register_nav_menu('global-menu', 'Global Menu');
+    register_nav_menu('explore-menu', 'Explore Menu');
+    register_nav_menu('learn-menu', 'Learn Menu');
     add_theme_support('title-tag');
 }
 
