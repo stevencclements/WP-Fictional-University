@@ -2,9 +2,6 @@
 
 get_header();
 
-/**
- * WordPress loop
- */
 while (have_posts()) {
     the_post(); ?>
 
@@ -28,6 +25,23 @@ while (have_posts()) {
         <div class="generic-content">
             <?php echo the_content(); ?>
         </div>
+
+        <?php
+        $relatedPrograms = get_field('related_programs');
+        
+        if ($relatedPrograms) : ?>
+            <hr class="section-break" />
+
+            <h2 class="headline headline--medium">Related Programs</h3>
+
+            <ul class="link-list min-list">
+                <?php
+                    foreach ($relatedPrograms as $program) { ?>
+                        <li><a href="<?php echo get_the_permalink($program) ?>"><?php echo get_the_title($program); ?></a></li>
+                    <?php }
+                ?>
+            </ul>
+        <?php endif; ?>
     </div>
 <?php }
 
