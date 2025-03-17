@@ -15,6 +15,7 @@ function university_features() {
     register_nav_menu('explore-menu', 'Explore Menu');
     register_nav_menu('learn-menu', 'Learn Menu');
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme', 'university_features');
